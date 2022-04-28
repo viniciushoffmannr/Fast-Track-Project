@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 10px 10px;
+}
+
+.logo {
+
+    width: 350px;
+    max-width: 110 px;
+    max-height: 110 px;
+}
+
