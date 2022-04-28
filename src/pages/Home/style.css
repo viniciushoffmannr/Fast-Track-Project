@@ -1,0 +1,12 @@
+.cardBox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    padding: 10px 10px;
+}
+
+.card {
+    width: 60vh;
+    margin-right: 20px;
+}
