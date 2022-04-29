@@ -1,21 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import img from "../../assets/Rick_SVG.svg";
+import api from "../../services/api";
 import css from "./style.css";
+import { selectCharacterRequest } from "../../store/modules/nameApi/actions";
 
 export default function Home() {
+  const dispatch = useDispatch();
+  const [characters, setCharacters] = useState([]);
+
+  useEffect(() => {
+    async function loadApi() {
+      const response = await api.get("character/?status=alive");
+      setCharacters(response.data.results);
+    }
+    loadApi();
+  }, []);
+
+  function handleAdd(id) {
+    dispatch(selectCharacterRequest(id));
+  }
+
   return (
     <div className="home">
-      <nav class="">
-        <div class="container-fluid">
-          <form class="d-flex">
+      <nav className="">
+        <div className="container-fluid">
+          <form className="d-flex">
             <input
-              class="form-control me-2"
+              className="form-control me-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn btn-light" type="submit">
+            <button className="btn btn-light" type="button" onClick={() => {}}>
               Search
             </button>
           </form>
@@ -23,38 +41,22 @@ export default function Home() {
         </div>
       </nav>
 
-      <div className="cardBox">
-        <div class="card">
-          <img src={img} class="cardImg card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
+      {characters.map((character) => (
+        <div key={character.id} className="cardBox">
+          <div className="card">
+            <img
+              src={character.image}
+              className="cardImg card-img-top"
+              alt="..."
+            />
+            <div className="card-body cardText">
+              <button type="button" onClick={() => handleAdd(character.id)}>
+                {character.name}
+              </button>
+            </div>
           </div>
         </div>
-        <div class="card">
-          <img src={img} class="cardImg card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <img src={img} class="cardImg card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
   );
 }

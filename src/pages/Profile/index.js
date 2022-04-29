@@ -1,5 +1,6 @@
 import React from "react";
 import css from "./style.css";
+
 import img from "../../assets/rickFace.jpeg";
 
 export default function Profile() {
