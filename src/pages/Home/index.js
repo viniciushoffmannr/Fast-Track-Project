@@ -3,7 +3,9 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import img from "../../assets/Rick_SVG.svg";
 import api from "../../services/api";
+
 import css from "./style.css";
+
 import { selectCharacterRequest } from "../../store/modules/nameApi/actions";
 
 export default function Home() {
@@ -49,10 +51,13 @@ export default function Home() {
               className="cardImg card-img-top"
               alt="..."
             />
+
             <div className="card-body cardText">
-              <button type="button" onClick={() => handleAdd(character.id)}>
-                {character.name}
-              </button>
+              <Link to="/profile">
+                <button type="button" onClick={() => handleAdd(character.id)}>
+                  {character.name}
+                </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -8,7 +8,7 @@ export default function PageRoutes() {
   return (
     <Routes>
       <Route exact path="/" element={<Home />} />
-      <Route exact path="/..." element={<Profile />} />
+      <Route exact path="/profile" element={<Profile />} />
     </Routes>
   );
 }
