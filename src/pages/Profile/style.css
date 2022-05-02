@@ -8,14 +8,16 @@
     border-radius: 10px;
     border-style: groove;
     background-color: white;
-    
-
 }
 
 .imgProfile {
     width: 400px;
     border-radius: 50%;
     box-shadow: 0px 0px 15px 11px rgba(0,0,0,0.48) ;
+}
+
+.description {
+    margin-left: 20px;
 }
 
 .text {    
@@ -26,43 +28,6 @@
 }
 
 
-
-.list {
-    list-style-type: none;
-    font-size: 20px;
-  
-}
-
-.list li {
-   font-size: 30px;
-   color: black;
-   font-family: 'Tapestry', cursive;
-}
-
 .comentarios {
     margin-top: 20px;
-    
-  
-
-}
-#title {
-    text-align: center;
-    font-family: 'Merriweather', serif;
-}
-
-
-.listComments {
-    margin-right: 29px;
-    list-style-type: none;
-    font-size: 30px;
-    
-}
-
-.listComments li {
-    border-radius: 10px;
-    border-style: groove;
-    background-color: white;
-    margin-bottom: 5px;
-    padding-left: 10px;
-    font-family: 'Oswald', sans-serif;
 }

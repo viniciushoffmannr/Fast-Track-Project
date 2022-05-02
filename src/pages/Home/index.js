@@ -11,11 +11,24 @@ import { selectCharacterRequest } from "../../store/modules/nameApi/actions";
 export default function Home() {
   const dispatch = useDispatch();
   const [characters, setCharacters] = useState([]);
+  const [characters2, setCharacters2] = useState([]);
+  const [textSearch, setTextSearch] = useState("");
+
+  useEffect(() => {
+    if (textSearch != "") {
+      setCharacters(
+        characters.filter((character) => character.name.includes(textSearch))
+      );
+    } else {
+      setCharacters([...characters2]);
+    }
+  }, [textSearch]);
 
   useEffect(() => {
     async function loadApi() {
       const response = await api.get("character/?status=alive");
       setCharacters(response.data.results);
+      setCharacters2(response.data.results);
     }
     loadApi();
   }, []);
@@ -32,6 +45,8 @@ export default function Home() {
             <input
               className="form-control me-2"
               type="search"
+              value={textSearch}
+              onChange={(e) => setTextSearch(e.target.value)}
               placeholder="Search"
               aria-label="Search"
             />

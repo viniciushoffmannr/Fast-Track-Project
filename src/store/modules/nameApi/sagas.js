@@ -8,7 +8,6 @@ function* addToCharacter({ id }) {
 
   yield put(selectCharacterSuccess(response.data));
   history.push("/profile");
-  console.log(response.data);
 }
 
 export default all([takeLatest("SELECT_CHARACTER_REQUEST", addToCharacter)]);
