@@ -1,37 +1,38 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-import css from "./style.css";
+import "./style.css";
 
 import CommentsProvider from "../../contexts/CommentsContext";
 import CommentsList from "../../components/commentsLi/liComment";
 import AddComment from "../../components/commentsLi/addComment";
 
 export default function Profile() {
-  const character = useSelector((state) => state.name);
+  const characterArray = useSelector((state) => state.name);
 
-  if (character.length > 0) {
+  let character = characterArray[0];
+  if (characterArray.length > 0) {
     return (
       <div>
         <div className="profile">
-          <img className="imgProfile" src={character[0].image} />
+          <img className="imgProfile" src={character.image} />
 
           <div className="description">
             <p className="text">
-              Hi, my name is <strong>{character[0].name}</strong> and I'm
-              <strong> {character[0].status}</strong>, so leave me alone
+              Hi, my name is <strong>{character.name}</strong> and I'm
+              <strong> {character.status}</strong>, so leave me alone
               motherfucker!
             </p>
 
             <ul className="list">
-              <li> {character[0].specie}</li>
-              <li> {character[0].gender}</li>
-              <li>From {character[0].location.name}</li>
-              <li>Specie: {character[0].species}</li>
+              <li> {character.specie}</li>
+              <li> {character.gender}</li>
+              <li>From {character.location.name}</li>
+              <li>Specie: {character.species}</li>
             </ul>
           </div>
         </div>
         <div>
-          <h2 id="title">
+          <h2 id="about">
             <strong>Comments about...</strong>
           </h2>
           <CommentsProvider>
@@ -39,6 +40,11 @@ export default function Profile() {
             <br />
             <hr />
             <br />
+
+            <p id="addComment">
+              <strong>Add a comment too</strong>
+            </p>
+
             <AddComment />
           </CommentsProvider>
         </div>

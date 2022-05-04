@@ -10,6 +10,11 @@
     background-color: white;
 }
 
+#about {
+    margin-top: 20px;
+    text-align: center;
+}
+
 .imgProfile {
     width: 400px;
     border-radius: 50%;
@@ -30,4 +35,28 @@
 
 .comentarios {
     margin-top: 20px;
+}
+
+#formComments{
+    text-align: center;
+}
+
+.addComment {
+    text-align: center;
+    margin-bottom: 10px;
+    width: 100vh;
+}
+
+#formButton{
+    margin-top: 10px;
+}
+
+@media (max-width: 633px){
+    .profile {
+        display: flex;
+        flex-direction: column;
+    }
+    .imgProfile{
+        width: 300px;
+    }
 }

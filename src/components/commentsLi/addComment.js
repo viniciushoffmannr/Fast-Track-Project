@@ -12,25 +12,37 @@ const AddComment = () => {
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <input
-        type="text"
-        name="name"
-        value={name}
-        id="name"
-        placeholder="Name"
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="text"
-        name="title"
-        value={title}
-        id="title"
-        placeholder="New Comment..."
-        onChange={(e) => setTitle(e.target.value)}
-      />
+    <form id="formComments" onSubmit={handleFormSubmit}>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          className="form-control"
+          id="name"
+          placeholder="Username"
+          aria-label="Username"
+          name="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </div>
 
-      <button type="submit"> Add Comment</button>
+      <div className="input-group">
+        <textarea
+          className="form-control"
+          type="text"
+          name="title"
+          value={title}
+          id="title"
+          placeholder="Your Comment"
+          onChange={(e) => setTitle(e.target.value)}
+          aria-label="With textarea"
+        ></textarea>
+      </div>
+
+      <br />
+      <button type="submit" className="btn btn-outline-dark">
+        Add Comment
+      </button>
     </form>
   );
 };
