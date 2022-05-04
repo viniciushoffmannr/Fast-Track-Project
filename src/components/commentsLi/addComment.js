@@ -4,16 +4,16 @@ import { useContext, useState } from "react";
 const AddComment = () => {
   const { saveComments } = useContext(CommentsContext);
   const [name, setName] = useState();
-  const [title, setTitle] = useState();
+  const [comment, setComment] = useState();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    saveComments({ name, comment: title });
+    saveComments({ name, comment });
   };
 
   return (
     <form id="formComments" onSubmit={handleFormSubmit}>
-      <div class="input-group mb-3">
+      <div className="input-group mb-3">
         <input
           type="text"
           className="form-control"
@@ -31,10 +31,10 @@ const AddComment = () => {
           className="form-control"
           type="text"
           name="title"
-          value={title}
+          value={comment}
           id="title"
           placeholder="Your Comment"
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => setComment(e.target.value)}
           aria-label="With textarea"
         ></textarea>
       </div>
