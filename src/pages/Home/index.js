@@ -69,11 +69,11 @@ export default function Home() {
                 <p className="card-text">{character.species}</p>
                 <Link to="/profile">
                   <button
-                    className="btn"
+                    className="btn homeButton"
                     type="button"
                     onClick={() => handleAdd(character.id)}
                   >
-                    View Profile
+                    <strong>View Profile</strong>
                   </button>
                 </Link>
               </div>

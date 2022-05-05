@@ -19,8 +19,7 @@ export default function Profile() {
           <div className="description">
             <p className="text">
               Hi, my name is <strong>{character.name}</strong> and I'm
-              <strong> {character.status}</strong>, so leave me alone
-              motherfucker!
+              <strong> {character.status}</strong>, so leave me alone!
             </p>
 
             <ul className="list">
@@ -37,9 +36,6 @@ export default function Profile() {
           </h2>
           <CommentsProvider>
             <CommentsList />
-            <br />
-            <hr />
-            <br />
 
             <p id="addComment">
               <strong>Add a comment too</strong>

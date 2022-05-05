@@ -5,7 +5,7 @@ export const LiCommentsItem = ({ li }) => {
     <div>
       <div className="comentarios">
         <ul className="listComments">
-          <li>
+          <li className="commentBox">
             <strong>{li.name}:</strong> {li.comment}
           </li>
         </ul>
