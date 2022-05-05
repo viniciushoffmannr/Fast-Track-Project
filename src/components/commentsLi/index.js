@@ -9,7 +9,7 @@ export const LiCommentsItem = ({ li }) => {
     <div>
       <div className="comentarios">
         <ul className="listComments">
-          <li key={li.id}>
+          <li>
             <strong>{li.name}:</strong> {li.comment}
           </li>
         </ul>
