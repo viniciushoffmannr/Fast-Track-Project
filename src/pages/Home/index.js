@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+
 import api from "../../services/api";
-
 import "./style.css";
-
 import { selectCharacterRequest } from "../../store/modules/nameApi/actions";
 
 export default function Home() {
@@ -53,7 +52,7 @@ export default function Home() {
         </div>
       </nav>
 
-      <section className="container-fluid " id="receitas">
+      <section className="container-fluid ">
         <div className="row justify-content-center">
           {characters.map((character) => (
             <article
@@ -63,7 +62,7 @@ export default function Home() {
               <img
                 src={character.image}
                 className="card-img-top card-posicao-imagem"
-                alt="profile picture"
+                alt="profile"
               />
               <div className="card-body ">
                 <h5 className="card-title">{character.name}</h5>

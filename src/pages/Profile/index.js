@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import "./style.css";
 
+import "./style.css";
 import CommentsProvider from "../../contexts/CommentsContext";
 import CommentsList from "../../components/commentsLi/liComment";
 import AddComment from "../../components/commentsLi/addComment";
@@ -14,7 +14,7 @@ export default function Profile() {
     return (
       <div>
         <div className="profile">
-          <img className="imgProfile" src={character.image} />
+          <img className="imgProfile" alt="Profile" src={character.image} />
 
           <div className="description">
             <p className="text">

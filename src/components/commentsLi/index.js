@@ -1,8 +1,4 @@
-import { useState } from "react";
-import CommentsProvider, {
-  CommentsContext,
-} from "../../contexts/CommentsContext";
-import css from "./style.css";
+import "./style.css";
 
 export const LiCommentsItem = ({ li }) => {
   return (
