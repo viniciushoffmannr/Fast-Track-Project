@@ -1,10 +1,12 @@
 import { CommentsContext } from "../../contexts/CommentsContext";
 import { useContext, useState } from "react";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../storee/profileSlice";
 
 const AddComment = () => {
   const { saveComments } = useContext(CommentsContext);
-  const [name, setName] = useState();
   const [comment, setComment] = useState();
+  const { name } = useSelector(selectUser);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -13,19 +15,6 @@ const AddComment = () => {
 
   return (
     <form id="formComments" onSubmit={handleFormSubmit}>
-      <div className="input-group mb-3">
-        <input
-          type="text"
-          className="form-control"
-          id="name"
-          placeholder="Username"
-          aria-label="Username"
-          name="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
-
       <div className="input-group">
         <textarea
           className="form-control"

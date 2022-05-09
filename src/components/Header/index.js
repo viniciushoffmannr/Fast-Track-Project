@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <div>
       <header className="container">
-        <Link to="/">
+        <Link to="/home">
           <img className="logo" src={rickFace} alt="Rosto do Rick" />
           <h1 className="principalName">TiwtRick</h1>
         </Link>

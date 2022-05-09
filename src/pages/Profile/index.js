@@ -6,13 +6,14 @@ import CommentsProvider from "../../contexts/CommentsContext";
 import CommentsList from "../../components/commentsLi/liComment";
 import AddComment from "../../components/commentsLi/addComment";
 import { selectCharc } from "../../storee/characterSlice";
+import ShowUser from "../../components/showUser";
 
 export default function Profile() {
   const { charc } = useSelector(selectCharc);
-  console.log(charc, "oi");
 
   return (
     <div>
+      <ShowUser />
       <div className="profile">
         <img className="imgProfile" alt="Profile" src={charc.image} />
 

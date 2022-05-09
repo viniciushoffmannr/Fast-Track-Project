@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import ShowUser from "../../components/showUser";
 
 import api from "../../services/api";
 import "./style.css";
@@ -37,6 +38,7 @@ export default function Home() {
 
   return (
     <div>
+      <ShowUser />
       <nav>
         <div className="container-fluid">
           <form className="d-flex">
