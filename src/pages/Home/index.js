@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import api from "../../services/api";
 import "./style.css";
-import { selectCharacterRequest } from "../../store/modules/nameApi/actions";
+import { fetchCharcRequest } from "../../storee/characterSlice";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ export default function Home() {
   }, []);
 
   function handleAdd(id) {
-    dispatch(selectCharacterRequest(id));
+    dispatch(fetchCharcRequest(id));
   }
 
   return (

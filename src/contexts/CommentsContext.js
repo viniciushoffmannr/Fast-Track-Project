@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 
 export const CommentsContext = createContext();
 
-const CommentsProvider = ({ children }) => {
+export function CommentsProvider({ children }) {
   const [list, setList] = useState([
     {
       id: 1,
@@ -41,6 +41,6 @@ const CommentsProvider = ({ children }) => {
       {children}
     </CommentsContext.Provider>
   );
-};
+}
 
 export default CommentsProvider;

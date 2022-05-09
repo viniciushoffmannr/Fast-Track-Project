@@ -1,18 +1,17 @@
 import PageRoutes from "./routes";
 import { BrowserRouter } from "react-router-dom";
 import Header from "./components/Header";
-import { Provider } from "react-redux";
 
-import store from "./store";
+import CommentsProvider from "./contexts/CommentsContext";
 
 function App() {
   return (
-    <Provider store={store}>
+    <CommentsProvider>
       <BrowserRouter>
         <Header />
         <PageRoutes />
       </BrowserRouter>
-    </Provider>
+    </CommentsProvider>
   );
 }
 
