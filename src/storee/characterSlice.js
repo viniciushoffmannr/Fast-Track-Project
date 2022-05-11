@@ -15,10 +15,14 @@ export const slice = createSlice({
     fetchCharcSuccess(state, action) {
       return { ...state, charc: action.payload };
     },
+    resetCharc(state) {
+      return { ...state, charc: "" };
+    },
   },
 });
 
-export const { fetchCharcRequest, fetchCharcSuccess } = slice.actions;
+export const { fetchCharcRequest, fetchCharcSuccess, resetCharc } =
+  slice.actions;
 
 export const selectCharc = (state) => state.characters;
 

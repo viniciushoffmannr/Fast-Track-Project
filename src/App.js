@@ -1,5 +1,5 @@
 import PageRoutes from "./routes";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Router } from "react-router-dom";
 import Header from "./components/Header";
 
 import CommentsProvider from "./contexts/CommentsContext";

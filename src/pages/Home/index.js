@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import ShowUser from "../../components/showUser";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
+import ShowUser from "../../components/showUser";
 import api from "../../services/api";
 import "./style.css";
-import { fetchCharcRequest } from "../../storee/characterSlice";
+import { fetchCharcRequest, selectCharc } from "../../storee/characterSlice";
 
 export default function Home() {
+  const navigate = useNavigate();
+  const { charc } = useSelector(selectCharc);
   const dispatch = useDispatch();
   const [characters, setCharacters] = useState([]);
   const [searchCharacters, setSearchCharacters] = useState([]);
@@ -31,6 +33,12 @@ export default function Home() {
     }
     loadApi();
   }, []);
+
+  useEffect(() => {
+    if (charc != "") {
+      navigate("/profile");
+    }
+  }, [charc]);
 
   function handleAdd(id) {
     dispatch(fetchCharcRequest(id));
@@ -69,15 +77,14 @@ export default function Home() {
               <div className="card-body ">
                 <h5 className="card-title">{character.name}</h5>
                 <p className="card-text">{character.species}</p>
-                <Link to="/profile">
-                  <button
-                    className="btn homeButton"
-                    type="button"
-                    onClick={() => handleAdd(character.id)}
-                  >
-                    <strong>View Profile</strong>
-                  </button>
-                </Link>
+
+                <button
+                  className="btn homeButton"
+                  type="button"
+                  onClick={() => handleAdd(character.id)}
+                >
+                  <strong>View Profile</strong>
+                </button>
               </div>
             </article>
           ))}
